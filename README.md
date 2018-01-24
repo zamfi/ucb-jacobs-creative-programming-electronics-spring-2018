@@ -1,6 +1,6 @@
 # Creative Programming & Electronics, Jacobs@UCB, Spring 2018
 
-This course repository contains homework assignments, useful guides, and code for "Programming & Electronics" at UC Berkeley's Jacobs Institute, Spring 2018.
+This course repository contains homework assignments, useful guides, and code for "Creative Programming & Electronics" at UC Berkeley's Jacobs Institute, Spring 2018.
 
 Also included in this repository is the official [course syllabus](syllabus.pdf).
 
