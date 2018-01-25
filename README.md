@@ -4,7 +4,7 @@ This course repository contains homework assignments, useful guides, and code fo
 
 Also included in this repository is the official [course syllabus](syllabus.pdf).
 
-### Week 1: Wednesday, January 17, 2018
+### Week 1: Thursday, January 18, 2018
 
 Lecture:
 - Introductions
@@ -61,3 +61,24 @@ Finally, here are some inspirational videos to get you excited for our class if 
   - [Roomba](https://www.youtube.com/watch?v=0DNkbZvVYvc)
 
 [Homework for Week 1](hw/week1.md)
+
+### Week 2: Thursday, January 25, 2018
+
+In-class:
+- Homework review.
+- Translating "pseudo-code" into real code with [Rudy](http://rudy.zamfi.net); here are some notes on the [building blocks of code](building-blocks-code.md).
+
+Workshop:
+
+1. Demo of Rudy's execution visualization: the `repeat(direction, max)` function
+
+2. Work through the Rudy puzzles with a partner. Make sure you understand the syntax.
+
+3. **Challenges**: On puzzle 9, the open canvas:
+    1.  Draw four rectangles of various sizes on the canvas.
+    2.  Draw 10 parallel vertical lines, 20 squares long, 3 squares apart.
+    3.  Define a function, `rect`, that takes four parameters: `x`, `y`, `width`, and `height`, and draws a rectangle on the canvas, at location (`x`,`y`) with the corresponding `width` and `height`.
+    4.  Modify the `rect` function so that it fills in the rectangle instead of just drawing the outline.
+    5.  **Extra Challenge**: Define a `line` function, that takes four parameters: `x1`, `y1`, `x2`, and `y2`, and draws a line between the point defined by (`x1`,`y1`) and the point defined by (`x2`,`y2`). There are many ways to approach this challenge! How can you make the most beautiful line? You may find some Internet research instructive.
+    6.  **Extra Challenge**: Define a `circle` function that takes three parameters: `x`, `y`, and `r`, and draws a circle of radius `r` centered on the point defined by (`x`,`y`). You find trigonometry helpful for this, in particular the `Math.sin` and `Math.cos` functions.
+
