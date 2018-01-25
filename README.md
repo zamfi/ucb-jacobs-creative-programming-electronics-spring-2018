@@ -79,6 +79,9 @@ Workshop:
     2.  Draw 10 parallel vertical lines, 20 squares long, 3 squares apart.
     3.  Define a function, `rect`, that takes four parameters: `x`, `y`, `width`, and `height`, and draws a rectangle on the canvas, at location (`x`,`y`) with the corresponding `width` and `height`.
     4.  Modify the `rect` function so that it fills in the rectangle instead of just drawing the outline.
-    5.  **Extra Challenge**: Define a `line` function, that takes four parameters: `x1`, `y1`, `x2`, and `y2`, and draws a line between the point defined by (`x1`,`y1`) and the point defined by (`x2`,`y2`). There are many ways to approach this challenge! How can you make the most beautiful line? You may find some Internet research instructive.
-    6.  **Extra Challenge**: Define a `circle` function that takes three parameters: `x`, `y`, and `r`, and draws a circle of radius `r` centered on the point defined by (`x`,`y`). You find trigonometry helpful for this, in particular the `Math.sin` and `Math.cos` functions.
+    5.  Modify the `rect` function so that it takes a fifth parameter, a color to draw the outline with.
+    6.  **Creative Challenge**: Creativity comes in many forms. One of those forms is randomness. Use the built-in JavaScript function `Math.random()`, which returns a "random" number between 0 and 1, to set color or control movement.
+    7.  **Mathy Challenge**: Use `Math.random()` to control the first derivative of the dot's motion. In other worse, manipulate the *speed* using randomness, not the *position*.
+    8.  **Extra Challenge**: Define a `line` function, that takes four parameters: `x1`, `y1`, `x2`, and `y2`, and draws a line between the point defined by (`x1`,`y1`) and the point defined by (`x2`,`y2`). There are many ways to approach this challenge! How can you make the most beautiful line? You may find some Internet research instructive.
+    9.  **Extra Challenge**: Define a `circle` function that takes three parameters: `x`, `y`, and `r`, and draws a circle of radius `r` centered on the point defined by (`x`,`y`). You find trigonometry helpful for this, in particular the `Math.sin` and `Math.cos` functions.
 
