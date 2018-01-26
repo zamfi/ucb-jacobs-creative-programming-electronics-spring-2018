@@ -4,7 +4,7 @@ This homework has two parts; first, explore p5.js by modifying some code and wri
 
 As a refresher, [**read through the building blocks we covered in class**](../building-blocks-code.md) and make sure it all makes sense. If you have any questions about anything, email [J.D.](mailto:zamfi@berkeley.edu) or [Noura](mailto:noura@berkeley.edu)!
 
-For this assignment (and every other in this course), publish your code on the web using GitHub, and submit your homework through [bCourses](https://bcourses.berkeley.edu/courses/1470326/assignments/7867752). You may find [this tutorial](http://github.com/zamfi/github-guide) helpful. Make a new repository for each week's homework; call this second one `hw2`. Then add or upload your solution to *each assignment in its own file*, e.g., `lines-1.js`, `morelines-2.js`, etc.** 
+For this assignment (and every other in this course), publish your code on the web using GitHub, and submit your homework through [bCourses](https://bcourses.berkeley.edu/courses/1470326/assignments/7867752). You may find [this tutorial](http://github.com/zamfi/github-guide) helpful. Make a new repository for each week's homework; call this second one `hw2`. Then add or upload your solution to *each assignment in its own file*, e.g., `lines-1.js`, `morelines-2.js`, etc.
 
 #### Tutorials about p5.js
 
