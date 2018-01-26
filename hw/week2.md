@@ -6,7 +6,7 @@ As a refresher, [**read through the building blocks we covered in class**](../bu
 
 For this assignment (and every other in this course), publish your code on the web using GitHub, and submit your homework through [bCourses](https://bcourses.berkeley.edu/courses/1470326/assignments/7867752). You may find [this tutorial](http://github.com/zamfi/github-guide) helpful. Make a new repository for each week's homework; call this second one `hw2`. Then add or upload your solution to *each assignment in its own file*, e.g., `lines-1.js`, `morelines-2.js`, etc.** 
 
-##### Tutorials about p5.js
+#### Tutorials about p5.js
 
 Learn about p5.js. Watch these videos by the wonderful and inimitable Daniel Shiffman. You may find it helpful to code along with Daniel.
 
@@ -16,7 +16,7 @@ Learn about p5.js. Watch these videos by the wonderful and inimitable Daniel Shi
 
 You can run all the code for this assignment in a Rudy p5.js playground; click the **Create p5.js playground** button at rudy.zamfi.net. All challenge problems are optional, but you are encouraged to tackle them and submit partial work-in-progress if you don't complete them.
 
-##### Analyzing code
+#### Analyzing code
 
 Take a look at these three sketches, make sure you understand what's going on, and make the requested changes:
 
@@ -77,7 +77,7 @@ Take a look at these three sketches, make sure you understand what's going on, a
 
     **Creative Challenge**: Instead of drawing ellipses, use the [beginShape](https://p5js.org/reference/#/p5/beginShape) function to draw a shape that's appropriate to your choice of color. Start by running the example on the `beginShape` reference page to understand how the function works and how it pairs with `vertex` and `endShape`.
     
-##### Writing New Code
+#### Writing New Code
 
 An exercise for developing facility with writing code to achieve a particular visual end.
 
