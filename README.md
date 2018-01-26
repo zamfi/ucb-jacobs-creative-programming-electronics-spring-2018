@@ -85,3 +85,4 @@ Workshop:
     8.  **Extra Challenge**: Define a `line` function, that takes four parameters: `x1`, `y1`, `x2`, and `y2`, and draws a line between the point defined by (`x1`,`y1`) and the point defined by (`x2`,`y2`). There are many ways to approach this challenge! How can you make the most beautiful line? You may find some Internet research instructive.
     9.  **Extra Challenge**: Define a `circle` function that takes three parameters: `x`, `y`, and `r`, and draws a circle of radius `r` centered on the point defined by (`x`,`y`). You find trigonometry helpful for this, in particular the `Math.sin` and `Math.cos` functions.
 
+[Homework for Week 2](hw/week2.md)
