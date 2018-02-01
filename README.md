@@ -103,7 +103,7 @@ Make a patch for the class quilt! Start with the following code:
 function yourPatch(x, y) {
   noFill();
   stroke(238);
-  rect(x, y, 100, 100);
+  rect(x, y, 300, 300);
   
   // your code here!
 }
@@ -112,18 +112,18 @@ background(255);
 yourPatch(0, 0); // draw patch at upper-left
 
 background(255);
-yourPatch(width-100, height-100); // draw patch at lower-right
+yourPatch(width-301, height-301); // draw patch at lower-right
 ```
 
-Modify the `yourPatch` function, replacing `// your code here!` with drawing commands that draw inside the 100-by-100 pixel square. Use `x` and `y` to get yourself started -- all your shapes should appear within the rectangle bounded to the left by `x`, above by `y`, to the right by `x+100` and below by `y+100`. That means that you'll need `x` and `y` (or other variables you create that *depend on* `x` and `y`) in every parameter to every painting function you use.
+Modify the `yourPatch` function, replacing `// your code here!` with drawing commands that draw inside the 300-by-300 pixel square. Use `x` and `y` to get yourself started -- all your shapes should appear within the rectangle bounded to the left by `x`, above by `y`, to the right by `x+300` and below by `y+300`. That means that you'll need `x` and `y` (or other variables you create that *depend on* `x` and `y`) in every parameter to every painting function you use.
 
 We'll then take all our functions and pattern them together into a class quilt! Making your functions depend on `x` and `y` means that we can place them anywhere in the quilt by "passing in" the appropriate `x` and `y` coordinates for that place in the quilt.
 
-When you like what you have, change the call your `yourPatch` to draw your patch at `(0, 0)` and `(100, 100)` -- make sure your drawing moves along with the coorinates.
+When you like what you have, change the call your `yourPatch` to draw your patch at `(0, 0)` and `(300, 300)` -- make sure your drawing moves along with the coorinates.
 
 Feel free (but not compelled) to remove the border rectangle when you like what you have!
 
-Here's an example that I came up with for myself:
+Here's a (smaller!) example that I came up with for myself:
 
 ```javascript
 function zamfiPatch(x, y) {
