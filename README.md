@@ -279,7 +279,7 @@ Today, we'll practice loops:
     Modify this code to create a circle that follows the mouse as in the anigif above.
 
 
-#### Understanding & Usuriping Code
+#### Understanding & Usurping Code
 
 Let's try to modify the following code:
 
