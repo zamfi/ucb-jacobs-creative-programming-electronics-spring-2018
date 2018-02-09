@@ -359,3 +359,5 @@ Now, consider this sketch: http://alpha.editor.p5js.org/jd/sketches/S1n5FmOLz
 **Exercise:** Add some per-key visual feedback. In the current code, there's a single "playing" variable that tracks whether any key is playing. Change this "state" so that there's a state per key!
 
 **Exercise:** Do something fun or interesting with this sketch.
+
+[Homework for Week 4](hw/week4.md)
