@@ -720,6 +720,8 @@ function draw() {
 
 #### Objects
 
+(We didn't get to this today, but it's left here for reference)
+
 Finally, to bounce these circles, we need the extra "direction" data. We could just add two more arrays: one for `xSpeed` and another for `ySpeed`. Or, we can bundle together all the properties of each circle — the `x`, `y`, `xSpeed`, and `ySpeed`, into a single object. (Noe that this code uses `xd` in place of `xSpeed`, `yd` in place of `ySpeed`, and merges the four boundary conditions into two!)
 
 ```javascript
@@ -771,3 +773,5 @@ function draw() {
 Note what "event" triggers the bouncing. What if we do [something else](https://alpha.editor.p5js.org/jd/sketches/H1StgvZwG) in that `if` too?
 
 **Exercise**: Incorporate arrays or objects into your visual musical instrument.
+
+[Homework for Week 5](hw/week5.md)
