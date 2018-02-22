@@ -722,7 +722,7 @@ function draw() {
 
 (We didn't get to this today, but it's left here for reference)
 
-Finally, to bounce these circles, we need the extra "direction" data. We could just add two more arrays: one for `xSpeed` and another for `ySpeed`. Or, we can bundle together all the properties of each circle — the `x`, `y`, `xSpeed`, and `ySpeed`, into a single object. (Noe that this code uses `xd` in place of `xSpeed`, `yd` in place of `ySpeed`, and merges the four boundary conditions into two!)
+Finally, to bounce these circles, we need the extra "direction" data. We could just add two more arrays: one for `xSpeed` and another for `ySpeed`. Or, we can bundle together all the properties of each circle — the `x`, `y`, `xSpeed`, and `ySpeed`, into a single object. (Note that this code uses `xd` in place of `xSpeed`, `yd` in place of `ySpeed`, and merges the four boundary conditions into two!)
 
 ```javascript
 var circles = [];
@@ -775,3 +775,75 @@ Note what "event" triggers the bouncing. What if we do [something else](https://
 **Exercise**: Incorporate arrays or objects into your visual musical instrument.
 
 [Homework for Week 5](hw/week5.md)
+
+### Week 6
+
+Playtest & critique of your Visual Musical Instrument!
+
+#### Objects
+
+Consider this "objectified" version of the bouncing circles sketch from last week:
+
+```javascript
+var circles = [];
+
+function setup() {
+  createCanvas(400, 400);
+  colorMode(HSB);
+
+  for (var index = 0; index < 100; index = index + 1) {
+    // new "circle" object, with x, y, xd, yd, and c properties:
+    circles[index] = {
+      x: width / 2,
+      y: height / 2,
+      xd: random(-2, 2),
+      yd: random(-2, 2),
+      c: color(random(360), 60, 100)
+    }
+  }
+}
+
+function draw() {
+  background(0);
+  noStroke();
+
+  for (var index = 0; index < 100; index = index + 1) {
+    // get circle object
+    var circle = circles[index];
+
+    // draw it
+    fill(circle.c);
+    ellipse(circle.x, circle.y, 10);
+
+    // move it according to direction
+    circle.x = circle.x + circle.xd;
+    circle.y = circle.y + circle.yd;
+
+    // check boundaries and update directions
+    if (circle.x > width || circle.x < 0) {
+      circle.xd = -circle.xd;
+    }
+    if (circle.y > height || circle.y < 0) {
+      circle.yd = -circle.yd;
+    }
+  }
+}
+```
+
+Note the differences! 
+
+**Exercise**: Modify this code in the following ways:
+1. Add a "radius" property to each circle.
+2. Decrease the radius every time the circle hits a boundary.
+3. Reset the location & size of each circle when it disappears.
+4. Add a visual indicator that triggers a circle hits a boundary.
+
+**Challenges**:
+1. Make the circles bounce off each other! (How can you detect when circles touch?)
+2. Spawn 10 new circles each time two circles collide. You may find the `append` function useful, and you will likely need to modify the condition of the `for` loop inside of your `draw` function to support arbitrary sizes for the `circles` array.
+3. Add `draw`, `move`, and `bounce` functions to each circle object. 
+
+
+#### From Idea to Code
+
+Designing and implementing from scratch, using the data/render/update/input breakdown, a sketch of moderate complexity.
