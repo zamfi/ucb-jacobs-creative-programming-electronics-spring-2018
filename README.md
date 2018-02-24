@@ -896,10 +896,12 @@ function draw() {
   // draw puck
   ellipse(puck.x, puck.y, puck.r);
   
+  // bounce puck off top/bottom edges
   if (puck.y < 0 || puck.y > height) {
     puck.ySpeed = -puck.ySpeed;
   }
   
+  // move puck
   puck.x += puck.xSpeed;
   puck.y += puck.ySpeed;
   
@@ -910,6 +912,7 @@ function draw() {
 }
 
 function keyPressed() {
+  // move paddles
   if (key == 'Q') {
     player1.y -= 3;
   }
