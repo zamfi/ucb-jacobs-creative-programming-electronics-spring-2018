@@ -836,7 +836,7 @@ Note the differences!
 1. Add a "radius" property to each circle.
 2. Decrease the radius every time the circle hits a boundary.
 3. Reset the location & size of each circle when it disappears.
-4. Add a visual indicator that triggers a circle hits a boundary.
+4. Add a visual indicator that triggers when a circle hits a boundary.
 
 **Challenges**:
 1. Make the circles bounce off each other! (How can you detect when circles touch?)
@@ -846,4 +846,81 @@ Note the differences!
 
 #### From Idea to Code
 
-Designing and implementing from scratch, using the data/render/update/input breakdown, a sketch of moderate complexity.
+Designing and implementing from scratch, using the data/render/simulate/user input breakdown, a sketch of moderate complexity.
+
+In class, we started building Pong together. We began by decomposing the game into components, and listing each component under the heading of Data Model, Rendering, Simulation, and User Input:
+
+|     Data Model     |     Rendering       |     Simulation     |      User Input       |
+|--------------------|---------------------|--------------------|-----------------------|
+| puck: `x`, `y`, `xSpeed`, `ySpeed` | puck | move puck, bounce puck |  arrow keys      |
+| paddles: `x`, `y`  | paddles             | move paddles       |                       |
+| scores: `player1`, `player2` | scores    | check for scoring  |                       |
+| defined playspace  | midline             |                    |                       |
+
+Then we started writing code, picking off the easiest / lowest hanging fruit from our chart above. Good practice is to prioritize the smallest possible thing that you can still show works: in our case, we started by modeling and rendering the puck. Then, simulating the puck. Then, modeling and rendering the paddles. Etc.
+
+We ended up with this code:
+
+```javascript
+var puck = {
+  x: 200,
+  y: 200,
+  xSpeed: 3,
+  ySpeed: -1,
+  r: 15
+};
+var edgeOffset = 20;
+
+var player1 = {
+  x: edgeOffset,
+  y: 200,
+  ht: 50,
+  wd: 10
+};
+
+var player2 = {
+  x: 400-edgeOffset,
+  y: 200,
+  ht: 50,
+  wd: 10
+};
+
+
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(255);
+  
+  // draw puck
+  ellipse(puck.x, puck.y, puck.r);
+  
+  if (puck.y < 0 || puck.y > height) {
+    puck.ySpeed = -puck.ySpeed;
+  }
+  
+  puck.x += puck.xSpeed;
+  puck.y += puck.ySpeed;
+  
+  // draw paddles
+  rect(player1.x, player1.y, player1.wd, player1.ht);
+  rect(player2.x, player2.y, player2.wd, player2.ht);
+  
+}
+
+function keyPressed() {
+  if (key == 'Q') {
+    player1.y -= 3;
+  }
+  
+  if (key == 'A') {
+    player1.y += 3;
+  }
+}
+```
+
+In the homework, you'll extend this code to add scoring!
+
+
+[Homework for Week 6](hw/week6.md)
