@@ -10,7 +10,7 @@ Before you start writing any code, **make sure to browse through the [Arduino re
 
 **Assignment**: Extend your circuit to include two additional LEDs, for a total of 3, as shown in this schematic:
 
-[! three LEDs and a potentiometer](../img/leds-and-pot.png)
+![three LEDs and a potentiometer](../img/leds-and-pot.png)
 
 Take a photo of your circuit and save it to your homework repository as `three-leds-and-a-pot.jpg`.
 
