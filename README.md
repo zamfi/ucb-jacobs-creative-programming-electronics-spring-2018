@@ -776,7 +776,7 @@ Note what "event" triggers the bouncing. What if we do [something else](https://
 
 [Homework for Week 5](hw/week5.md)
 
-### Week 6
+### Week 6: Thursday, February 22, 2018
 
 Playtest & critique of your Visual Musical Instrument!
 
@@ -927,3 +927,9 @@ In the homework, you'll extend this code to add scoring!
 
 
 [Homework for Week 6](hw/week6.md)
+
+### Week 7: Thursday, March 1, 2018
+
+This week, we distributed your Feather-based elctronics kits, and introduced the basic concepts of electronics. [Here are the slides.](feather-intro.pdf)
+
+[Homework for Week 7](hw/week7.md)
