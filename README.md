@@ -977,36 +977,36 @@ What happens if you run the Blink Arduino sketch, the one we used to make an LED
 
 Try this code in Arduino:
 
+```c
+/* DC Motor with potentiometer control
+ * Adapted from Theory and Practice of Tangible User Interfaces
+ * Fall 2017
+ */
 
-    /* DC Motor with potentiometer control
-     * Adapted from Theory and Practice of Tangible User Interfaces
-     * Fall 2017
-     */
+// pins: pin numbers in the code and in your circuit must match
+int potPin = A0;    // pot
+int DCmotorPin = 9; // DC motor (via the transistor)
 
-    // pins: pin numbers in the code and in your circuit must match
-    int potPin = A0;    // pot
-    int DCmotorPin = 9; // DC motor (via the transistor)
+int potVal = 0;     // value we read from the pot sensor (range: 0-1023)
+int DCmotorVal = 0; // value we send out to the motor (range: 0-255)
 
-    int potVal = 0;     // value we read from the pot sensor (range: 0-1023)
-    int DCmotorVal = 0; // value we send out to the motor (range: 0-255)
+void setup() {
+  pinMode(potPin, INPUT);      // setting up the pot pin
+  pinMode(DCmotorPin, OUTPUT); // setting up the DCmotorPin
+  Serial.begin(9600);          // setting up the serial logging
+}
 
-    void setup() {
-      pinMode(potPin, INPUT);      // setting up the pot pin
-      pinMode(DCmotorPin, OUTPUT); // setting up the DCmotorPin
-      Serial.begin(9600);          // setting up the serial logging
-    }
+void loop() {
+  // read the pot sensor and print it to serial
+  potVal = analogRead(potPin);
+  Serial.print("potVal: ");Serial.println(potVal);
 
-    void loop() {
-      // read the pot sensor and print it to serial
-      potVal = analogRead(potPin);
-      Serial.print("potVal: ");Serial.println(potVal);
-
-      // use the pot val to control the motor speed
-      DCmotorVal = map(potVal, 0, 1024, 0, 255);
-      Serial.print("DCmotorVal: ");Serial.println(DCmotorVal);
-      analogWrite(DCmotorPin, DCmotorVal);
-    }
-
+  // use the pot val to control the motor speed
+  DCmotorVal = map(potVal, 0, 1024, 0, 255);
+  Serial.print("DCmotorVal: ");Serial.println(DCmotorVal);
+  analogWrite(DCmotorPin, DCmotorVal);
+}
+```
 
 What happens as you turn the pot? Why?
 
