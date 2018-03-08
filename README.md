@@ -943,17 +943,18 @@ This week, we learned about DC motors and Servo motors with Arduino Feather.
 
 Source: Course materials for DC motor section are adapted from course materials for INFO C262 Theory and Practice of Tangible User Interfaces.
 
+DC motors convert direct current into rotational motion. You can read more about how they work here: [How A DC Motor Works?](http://www.electricaleasy.com/2014/01/basic-working-of-dc-motor.html)
+
+
+Build the following circuit.
+
 Circuit parts needed:
 
 * DC motor
-* transistor
+* transistor ([spec sheet](https://www.jameco.com/Jameco/Products/ProdDS/38359.pdf))
 * diode
 * 4 AA batteries
 * holder for batteries
-
-DC motors convert direct current into rotational motion. You can read more about how they work here: [How A DC Motor Works?](http://www.electricaleasy.com/2014/01/basic-working-of-dc-motor.html)
-
-Build the following circuit.
 
 Notice that, on the left side, this is the pot circuit we have built previously. 
 The DC motor requires its own power supply because it draws more current than the Arduino (or the USB port on your computer) can safely provide. That's why we use the extra battery pack. So, in this circuit, there are two separate sources of "power" - the red wires indicating 6V from the battery, and the orange wires indicating 3.3V from the Arduino. They all share a common ground indicated by black wires.
@@ -961,6 +962,8 @@ The DC motor requires its own power supply because it draws more current than th
 Notice that the diode has a direction. The stripe on the diode indicates which way it has to be in the circuit. Also, remember when we used LEDs? Those are Light Emitting Diodes. This is a non-light-emitting diode or just a regular diode.
 
 Notice that the transistor has a smooth face and a curved face. This orientation matters for which leg does what. A transistor acts like a "gate" that can be open or closed. When the gate is open, power can flow through the motor, to the "collector" pin on the transistor, through the transistor gate, out through the "emitter" pin on the transistor, to ground, completing the circuit - this is when the motor spins. When the gate is shut, power cannot flow so the motor does not spin. We control whether the gate is open or shut using the "base" pin on the transistor.
+
+You don't need to worry about the "spec sheet" for the transistor. Just including that for future reference. If you are curious, I had to look at that pdf to know which legs on the transistor were for collector, base, and emitter, as indicated by C, B, and E on the data sheet.
 
 ![DC Motor Circuit](img/dc_motor_circuit.png)
 
