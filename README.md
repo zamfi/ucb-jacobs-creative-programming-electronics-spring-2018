@@ -933,3 +933,89 @@ In the homework, you'll extend this code to add scoring!
 This week, we distributed your Feather-based elctronics kits, and introduced the basic concepts of electronics. [Here are the slides.](feather-intro.pdf)
 
 [Homework for Week 7](hw/week7.md)
+
+
+### Week 8: Thursday, March 8, 2018
+
+This week, we learned about DC motors and Servo motors with Arduino Feather.
+
+### DC Motor
+
+Source: Course materials for DC motor section are adapted from course materials for INFO C262 Theory and Practice of Tangible User Interfaces.
+
+Circuit parts needed:
+
+* DC motor
+* transistor
+* diode
+* 4 AA batteries
+* holder for batteries
+
+DC motors convert direct current into rotational motion. You can read more about how they work here: [How A DC Motor Works?](http://www.electricaleasy.com/2014/01/basic-working-of-dc-motor.html)
+
+Build the following circuit.
+
+Notice that, on the left side, this is the pot circuit we have built previously. 
+The DC motor requires its own power supply because it draws more current than the Arduino (or the USB port on your computer) can safely provide. That's why we use the extra battery pack. So, in this circuit, there are two separate sources of "power" - the red wires indicating 6V from the battery, and the orange wires indicating 3.3V from the Arduino. They all share a common ground indicated by black wires.
+
+Notice that the diode has a direction. The stripe on the diode indicates which way it has to be in the circuit. Also, remember when we used LEDs? Those are Light Emitting Diodes. This is a non-light-emitting diode or just a regular diode.
+
+Notice that the transistor has a smooth face and a curved face. This orientation matters for which leg does what. A transistor acts like a "gate" that can be open or closed. When the gate is open, power can flow through the motor, to the "collector" pin on the transistor, through the transistor gate, out through the "emitter" pin on the transistor, to ground, completing the circuit - this is when the motor spins. When the gate is shut, power cannot flow so the motor does not spin. We control whether the gate is open or shut using the "base" pin on the transistor.
+
+![DC Motor Circuit](img/dc_motor_circuit.png)
+
+![DC Motor Fritzing](img/dc_motor_circuit_fritzing.png)
+
+#### DC Motor "Blink"
+
+What happens if you run the Blink Arduino sketch, the one we used to make an LED blink on and off every second or so, except instead of making the pin 13 LED blink on and off, you change it to pin 9 to control the motor? Why do you think this happens? Think about what the "gate" of the transistor is doing as you send HIGH or LOW to the base pin.
+
+#### DC Motor Pot Control
+
+Try this code in Arduino:
+
+
+    /* DC Motor with potentiometer control
+     * Adapted from Theory and Practice of Tangible User Interfaces
+     * Fall 2017
+     */
+
+    // pins: pin numbers in the code and in your circuit must match
+    int potPin = A0;    // pot
+    int DCmotorPin = 9; // DC motor (via the transistor)
+
+    int potVal = 0;     // value we read from the pot sensor (range: 0-1023)
+    int DCmotorVal = 0; // value we send out to the motor (range: 0-255)
+
+    void setup() {
+      pinMode(potPin, INPUT);      // setting up the pot pin
+      pinMode(DCmotorPin, OUTPUT); // setting up the DCmotorPin
+      Serial.begin(9600);          // setting up the serial logging
+    }
+
+    void loop() {
+      // read the pot sensor and print it to serial
+      potVal = analogRead(potPin);
+      Serial.print("potVal: ");Serial.println(potVal);
+
+      // use the pot val to control the motor speed
+      DCmotorVal = map(potVal, 0, 1024, 0, 255);
+      Serial.print("DCmotorVal: ");Serial.println(DCmotorVal);
+      analogWrite(DCmotorPin, DCmotorVal);
+    }
+
+
+What happens as you turn the pot? Why?
+
+### PWM & the Dirty Secret of Arduino analogWrite()
+
+We have been using digitalWrite() to send either a HIGH or LOW value to output pins. We can think of this as a binary or digital output.
+
+We have been using analogWrite() to send values between 0 and 255 to output pins. We can think of this as an analog or continuous output.
+
+But is analogWrite() really analog? Is it really continuous? Well, no. It is actually using PWM (Pulse Width Modulation) to "fake" an analog output. It is oscillating (aka "modulating") between HIGH and LOW really fast, so fast we can't perceive it, and spending a little more time on HIGH or a little more time on LOW as needed to "fake" some value in between. For example, to send out 125 (about halfway between 0 and 255), the pin sends out HIGH about half the time and LOW about half the time - this is called a 50% duty cycle. To send out 64 (about a quarter of the way from 0 to 255), the pin sends out HIGH about a quarter of the time, and LOW about 75% of the time - this is called a 25% duty cycle.
+
+Read more about PWM, with some helpful pictures, here:
+[Arduino PWM](https://www.arduino.cc/en/Tutorial/PWM)
+
+This is how dimmer switches on lights in homes work a lot of the time. The lights are actually flashing on and off really really fast, so fast that we don't perceive them as flashing, instead we perceive the lights as brighter or dimmer.
