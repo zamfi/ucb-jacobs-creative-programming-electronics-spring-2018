@@ -939,7 +939,7 @@ This week, we distributed your Feather-based elctronics kits, and introduced the
 
 This week, we learned about DC motors and Servo motors with Arduino Feather.
 
-### DC Motor
+#### DC Motor
 
 Source: Course materials for DC motor section are adapted from course materials for INFO C262 Theory and Practice of Tangible User Interfaces.
 
@@ -1010,7 +1010,7 @@ Try this code in Arduino:
 
 What happens as you turn the pot? Why?
 
-### PWM & the Dirty Secret of Arduino analogWrite()
+#### PWM & the Dirty Secret of Arduino analogWrite()
 
 We have been using digitalWrite() to send either a HIGH or LOW value to output pins. We can think of this as a binary or digital output.
 
