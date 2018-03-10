@@ -1,4 +1,4 @@
-### Homework 7 (due Tuesday, March 6, 2017)
+### Homework 7 (due Tuesday, March 6, 2018)
 
 In this assignemnt, you'll practice building circuits on your breadboard from a schematic, and then you'll exercise your creative skills to build a set of status notifications using just a single pixel -- one LED!
 
