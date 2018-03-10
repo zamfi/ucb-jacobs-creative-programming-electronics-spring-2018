@@ -1108,6 +1108,7 @@ This code uses your potentiometer as an input angle; what happens when you rotat
 to match what you discovered your true endpoints to be in the previous exercise.
 
 **Exercise**: Attach your second servo to a new pin, and make it rotate in the opposite direction from your first servo.
+
 **Challenge**: Build a [mechanism](https://teachmetomake.files.wordpress.com/2010/02/machinations-mechanisms.pdf) powered by your two servos using found materials.
 
 [Homework for Week 8](hw/week8.md)
