@@ -1164,3 +1164,5 @@ Here are pictures of the circuit. On the neopixel, there are two sides with 3 he
 
 ![Neopixel circuit lit diffuse](img/neopixel/neopixel_circuit_lit_diffuse.JPG)
 To see the colors, I find it helpful to use a light diffuser so that the red, green, and blue components of the color blend together into the single color we want to produce. As a light diffuser, a simple piece of paper suffices for prototyping.
+
+WARNING: This circuit is for using the neopixel when the Arduino Feather is plugged in to USB on your computer. DO NOT try this when Arduino Feather is powered by battery pack, because this might send too much power to the neopixel and burn it out!! This warning is straight from the Adafruit neopixel guide linked to above. If you want to go with a standalone project that is not plugged in to your computer, read through the Adafruit guide on neopixels carefully and work ewith me and J.D. to figure out how to do this.
