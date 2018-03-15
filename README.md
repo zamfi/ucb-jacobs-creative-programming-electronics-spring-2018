@@ -1112,3 +1112,55 @@ to match what you discovered your true endpoints to be in the previous exercise.
 **Challenge**: Build a [mechanism](https://teachmetomake.files.wordpress.com/2010/02/machinations-mechanisms.pdf) powered by your two servos using found materials.
 
 [Homework for Week 8](hw/week8.md)
+
+### Week 9: Soldering, Neopixel, and Robotic Lamp
+
+Today you continued working on your robotic lamp in teams.
+
+Gary hosted a soldering workshop.
+
+You should solder your neopixel LED.
+
+Read more on neopixels [here](https://learn.adafruit.com/adafruit-neopixel-uberguide/the-magic-of-neopixels).
+
+To try out using just one neopixel, here is a circuit and some code. First you need to install the Neopixel library. In Arduino IDE go to Sketch --> Include Library --> Manage Libraries, search for neopixel, download the library called "Adafruit Neopixel" by Adafruit.
+
+This code works for one neopixel plugged in to pin 11, and makes it change to a random color every second.
+
+
+    #include <Adafruit_NeoPixel.h>
+    #ifdef __AVR__
+      #include <avr/power.h>
+    #endif
+
+    // When we setup the NeoPixel library, we tell it how many pixels, and which pin to use to send signals.
+    // Note that for older NeoPixel strips you might need to change the third parameter--see the strandtest
+    // example for more information on possible values.
+    Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, 11, NEO_GRB + NEO_KHZ800);
+
+
+    void setup() {
+      pixels.begin();
+
+    }
+
+    void loop() {
+      int red = random(0, 255);
+      int green = random(0, 255);
+      int blue = random(0, 255);
+      pixels.setPixelColor(0, pixels.Color(red, green, blue));
+      pixels.show();
+      delay(1000);
+    }
+
+
+Here are pictures of the circuit. On the neopixel, there are two sides with 3 header pins each. We are connecting to the side with the pins labeled +, G, and In. Connect Neopixel pin + to Feather pin BAT. Connect Neopixel pin G to ground (Feather pin GND). Connect Neopixel pin In to a resistor, then to Feather pin 11.
+
+![Neopixel circuit closeup](img/neopixel/neopixel_circuit_unlit_closeup.JPG)
+
+![Neopixel circuit](img/neopixel/neopixel_circuit_unlit.JPG)
+
+![Neopixel circuit lit](img/neopixel/neopixel_circuit_lit.JPG)
+
+![Neopixel circuit lit diffuse](img/neopixel/neopixel_circuit_lit_diffuse.JPG)
+To see the colors, I find it helpful to use a light diffuser so that the red, green, and blue components of the color blend together into the single color we want to produce. As a light diffuser, a simple piece of paper suffices for prototyping.
