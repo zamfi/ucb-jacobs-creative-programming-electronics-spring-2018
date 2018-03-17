@@ -1113,56 +1113,66 @@ to match what you discovered your true endpoints to be in the previous exercise.
 
 [Homework for Week 8](hw/week8.md)
 
-### Week 9: Soldering, Neopixel, and Robotic Lamp
+### Week 9: Soldering, NeoPixel, and Robotic Lamp
 
 Today you continued working on your robotic lamp in teams.
 
 Gary hosted a soldering workshop.
 
-You should solder your neopixel LED.
+You should solder your NeoPixel LED.
 
-Read more on neopixels [here](https://learn.adafruit.com/adafruit-neopixel-uberguide/the-magic-of-neopixels).
+Read more on NeoPixels [here](https://learn.adafruit.com/adafruit-neopixel-uberguide/the-magic-of-neopixels).
 
-To try out using just one neopixel, here is a circuit and some code. First you need to install the Neopixel library. In Arduino IDE go to Sketch --> Include Library --> Manage Libraries, search for neopixel, download the library called "Adafruit Neopixel" by Adafruit.
+To try out using just one NeoPixel, here is a circuit and some code. First you need to install the NeoPixel library. In Arduino IDE go to Sketch --> Include Library --> Manage Libraries, search for NeoPixel, download the library called "Adafruit NeoPixel" by Adafruit.
 
-This code works for one neopixel plugged in to pin 11, and makes it change to a random color every second.
+This code works for one NeoPixel plugged in to pin 11, and makes it change to a random color every second.
 
+```c
+#include <Adafruit_NeoPixel.h>
+#ifdef __AVR__
+  #include <avr/power.h>
+#endif
 
-    #include <Adafruit_NeoPixel.h>
-    #ifdef __AVR__
-      #include <avr/power.h>
-    #endif
-
-    // When we setup the NeoPixel library, we tell it how many pixels, and which pin to use to send signals.
-    // Note that for older NeoPixel strips you might need to change the third parameter--see the strandtest
-    // example for more information on possible values.
-    Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, 11, NEO_GRB + NEO_KHZ800);
-
-
-    void setup() {
-      pixels.begin();
-
-    }
-
-    void loop() {
-      int red = random(0, 255);
-      int green = random(0, 255);
-      int blue = random(0, 255);
-      pixels.setPixelColor(0, pixels.Color(red, green, blue));
-      pixels.show();
-      delay(1000);
-    }
+// When we setup the NeoPixel library, we tell it how many pixels, and which pin to use to send signals.
+// Note that for older NeoPixel strips you might need to change the third parameter--see the strandtest
+// example for more information on possible values.
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, 11, NEO_GRB + NEO_KHZ800);
 
 
-Here are pictures of the circuit. On the neopixel, there are two sides with 3 header pins each. We are connecting to the side with the pins labeled +, G, and In. Connect Neopixel pin + to Feather pin BAT. Connect Neopixel pin G to ground (Feather pin GND). Connect Neopixel pin In to a resistor, then to Feather pin 11.
+void setup() {
+  pixels.begin();
 
-![Neopixel circuit closeup](img/neopixel/neopixel_circuit_unlit_closeup.JPG)
+}
 
-![Neopixel circuit](img/neopixel/neopixel_circuit_unlit.JPG)
+void loop() {
+  int red = random(0, 255);
+  int green = random(0, 255);
+  int blue = random(0, 255);
+  pixels.setPixelColor(0, pixels.Color(red, green, blue));
+  pixels.show();
+  delay(1000);
+}
+```
 
-![Neopixel circuit lit](img/neopixel/neopixel_circuit_lit.JPG)
+Here are pictures of the circuit. On the NeoPixel, there are two sides with 3 header pins each. We are connecting to the side with the pins labeled +, G, and In. Connect NeoPixel pin + to Feather pin BAT. Connect NeoPixel pin G to ground (Feather pin GND). Connect NeoPixel pin In to a resistor, then to Feather pin 11.
 
-![Neopixel circuit lit diffuse](img/neopixel/neopixel_circuit_lit_diffuse.JPG)
+![NeoPixel circuit closeup](img/neopixel/neopixel_circuit_unlit_closeup.JPG)
+
+![NeoPixel circuit](img/neopixel/neopixel_circuit_unlit.JPG)
+
+![NeoPixel circuit lit](img/neopixel/neopixel_circuit_lit.JPG)
+
+![NeoPixel circuit lit diffuse](img/neopixel/neopixel_circuit_lit_diffuse.JPG)
 To see the colors, I find it helpful to use a light diffuser so that the red, green, and blue components of the color blend together into the single color we want to produce. As a light diffuser, a simple piece of paper suffices for prototyping.
 
-WARNING: This circuit is for using the neopixel when the Arduino Feather is plugged in to USB on your computer. DO NOT try this when Arduino Feather is powered by battery pack, because this might send too much power to the neopixel and burn it out!! This warning is straight from the Adafruit neopixel guide linked to above. If you want to go with a standalone project that is not plugged in to your computer, read through the Adafruit guide on neopixels carefully and work ewith me and J.D. to figure out how to do this.
+**WARNING**: This circuit is for using the NeoPixel when the Arduino Feather is plugged in to USB on your computer. **DO NOT** try this when Arduino Feather is powered by battery pack, because this might send **too much power** to the NeoPixel and burn it out!! This warning is straight from the Adafruit NeoPixel guide linked to above. If you want to go with a standalone project that is not plugged in to your computer, read through the Adafruit guide on NeoPixels carefully and work ewith me and J.D. to figure out how to do this.
+
+#### Chaining NeoPixels
+
+In addition to being color-customizable, NeoPixels have the added advantage of being *chainable*: you can connect each NeoPixel to another NeoPixel, forming really long chains (limited by physics & available memeory, of course).
+
+Simply wire the NeoPixel `O` pin (across the pixel from the `In` pin) to the next NeoPixel's `In` pin. (You don't need -- or want -- an additional resistor.)
+
+Then, in your code, update the `Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, 11, NEO_GRB + NEO_KHZ800);` line to increase the first argument there -- `1` -- to be the correct number of chained NeoPixels you have. With that done, you can now address any specific pixel by index, starting at 0 (like arrays!).
+
+Take a look at the NeoPixel examples (File > Examples > NeoPixel > *etc.*) for some inspiration.
