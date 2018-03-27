@@ -1176,3 +1176,13 @@ Simply wire the NeoPixel `O` pin (across the pixel from the `In` pin) to the nex
 Then, in your code, update the `Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, 11, NEO_GRB + NEO_KHZ800);` line to increase the first argument there -- `1` -- to be the correct number of chained NeoPixels you have. With that done, you can now address any specific pixel by index, starting at 0 (like arrays!).
 
 Take a look at the NeoPixel examples (File > Examples > NeoPixel > *etc.*) for some inspiration.
+
+### Week 10: Thursday, March 22, 2018
+
+- Robotic Lamp presentations!
+
+- Final project discussions
+
+- If there is time, after the presentations, we'll talk about different types of input sensors.
+
+[Homework for Week 10](hw/final-project.md)
