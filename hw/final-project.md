@@ -18,7 +18,7 @@ Prepare a proposal for your final project.
 
   The final project is your opportunity to put to work what you've learned so far in class, and to build the skills you're most interested in taking with you from this course.
 
-- **Assignment**: Make a group for your team in [bCourses](https://bcourses.berkeley.edu/courses/1470326/groups#tab-62529) **under the Final Project tab**, not the *Student Groups* tab. (If you've already made a team under *Student Groups*, please remake it under **Final Projct**.) Unfortunately it doesn't looke like I can link you directly to that tab, so please click on **Final Project** before making your group.
+- **Assignment**: Make a group for your team in [bCourses](https://bcourses.berkeley.edu/courses/1470326/groups#tab-62529) It will appear in the category Studen Groups, later we will go in and transfer these to Final Project groups. Something inconvenient about bCourses we just learned... sorry for any confusion! From the bCourses class web page, click People in the left menu, then Groups in the tab bar, then +Group in the uppper right.
 
 - **Assignment**: Post your proposal's **Summary** section in the [Project Forum on bCourses](https://bcourses.berkeley.edu/courses/1470326/discussion_topics/5338312) and provide feedback to your classmates.
 
