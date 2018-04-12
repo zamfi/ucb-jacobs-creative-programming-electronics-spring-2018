@@ -1186,3 +1186,54 @@ Take a look at the NeoPixel examples (File > Examples > NeoPixel > *etc.*) for s
 - If there is time, after the presentations, we'll talk about different types of input sensors.
 
 [Homework for Week 10](hw/final-project.md)
+
+### Week 11: Thursday, April 5, 2018
+
+- Final Project discussions, round 2.
+
+- Capacitive Touch sensors!
+
+
+### Week 12: Thursday, April 12, 2018
+
+- Final Project updates (30 min)
+
+#### Inputs
+
+In this catch-up session, we'll experiment a bit with different types of basic input devices. Input sensors broadly fall into two categories: digital sensors and analog sensors.
+
+"Digital" sensors come in a variety of complexities, but "digital" can mean different things based on the context. For a simple component sensor, "digital" usually means it has two possible states. For example, a switch, or a button, can be either open or closed: there are no intermediate states. Not all switches are activated by humans, either; a magnetic reed switch, for example, opens and closes based on the presence of a magnet. 
+
+But people also use "digital" for sensors that have a digital *interface*. These sensors are ultimately *analog* sensors because they provide a range of possible values, but you connect to them using a digital communication protocol (i.e., a protocol made of up zeros and ones that encode those analog values) using the digital pins on your microcontroller. Many temperature or humidity sensors, and some distance sensors, fall into this category.
+
+Most "analog" sensors have an output that varies some electrical property that you need to measure using an analog input pin. Sometimes, as in the case of optical distance sensors, that analog output is already a voltage -- which is super convenient, because that's exactly what your analog input pin can measure. More often, however, as in the case of light-dependent resistors, thermistors, flex sensors, force sensors, and potentiometers, it's the resistance of the component that varies, and you need to create a circuit to turn that resistance change into a voltage change so you can measure it.
+
+The most common circuit for converting a varying resistance into a varying voltage is called a "voltage divider". In this type of circuit, you have two resistors, one of fixed resistance, and the other of varying resistance -- your sensor. The varying voltage output can be found *between the two resistors*, often labeled `Vout` and connected to an analog input pin.
+
+Here's a typical schematic: 
+
+![Voltage divider](img/voltage-divider.png)
+
+Here's a schematic that explicitly replaces one of the resistors with a light-dependent resistor:
+
+![Photoresistor divider](img/photoresistor-divider.png)
+
+There are many analogies for how electronics work. The one I find most helpful for understanding the voltage divider is the "slide at the park" analogy:
+
+![Slide analogy](img/slide-analogy.png)
+
+The charge particles are always losing their 3V of "energy" ("height" in the analogy) going through the two resistors. But their "energy" at the point that you measure them is higher or lower depending on the relative resistances ("length" in the analogy). In the drawing above, when your bottom resistor increases in resistance (length), the `Vout` value increases, beause the charge particles have lost less total voltage (height) in the first resistor than they will in the second resistor. 
+
+The extreme case of this is used for switches. Switches have either 0 resistance (closed) or infinite resistance (open). What happens to your `Vout` if `R1`'s values are 0 or infinite? In this case, `R3` is known as a pull-down resistor.
+
+**Exercise: Use a multimeter to measure the varying resistor of the sensor your group picked.**
+
+**Exercise: Construct the schematic above using your 10K resistor for R1, and your varying resistor for R2. Use a multimeter to measure the varying voltage of your circuit at `Vout`.**
+
+**Exercise: Connect `Vout` to analog input pin `A0` and use the "Examples > Basics > AnalogReadSerial" sketch in Arduino to view the varying voltage as measured by your Feather board. Try both the Serial Monitor and the Serial Plotter.**
+
+**Exercise: Replace your varying resistor with a button from your kit. What happens to the voltage values?**
+
+#### Engineering, Design, and Interaction
+
+A talk! And maybe some exercises.
